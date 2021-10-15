@@ -1,0 +1,36 @@
+{
+  "name": "traveling-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server/index.js",
+    "build": "webpack --config ./webpack.dev.js && node ./src/server/index.js",
+    "build-dev": "webpack-dev-server --config ./webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Roldan Barreto - Almunz tech",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "css-loader": "^6.3.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
+    "lodash.set": "^4.3.2",
+    "node-fetch": "^2.6.3",
+    "webpack-dev-server": "^4.3.0"
+  }
+}

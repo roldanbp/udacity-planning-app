@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
+    <title>Traveling app</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper__header">
+            <div class="wrapper__header-content">
+                <div id="user-name-container"></div>
+                <form class="wrapper__header-inputs-container" action="">
+                    <input id="country-input" type="text" class="input" placeholder="What city?" required>
+                    <input id="date-input" type="date" class="input" id="start" name="trip-start"
+                    value="2018-07-22"
+                    min="2018-01-01" max="2099-12-31" required>
+                    <button id="submit" type="submit" class="button-search"> Search </button>
+                </form>
+                <button id="login" class="wrapper__header-login" type="button">Login </button>
+            </div>
+        </div>
+        <div class="wrapper__content">
+            <div class="wrapper__content-top"></div>
+            <div id="wrapper__content-result" class="wrapper__content-result card">
+                <div id="content-placeholder" class="content-result-placeholder">
+                    <h1>Look the best places</h1>
+                    <ul class="placeholder-step">
+                        <li> Sign in to a best experience</li>
+                        <li> Writign the city</li>
+                        <li>Selecting the data</li>
+                        <li>Pressing search</li>
+                    </ul>
+                </div>
+                <div id="content-result-data" class="content__result-data">
+                    <img alt="image" id="result-data-img" class="result-data-img">
+                    <h1 id="result-data-place" class="result-data-place"></h1>
+                    <div class="result-data-weather">
+                        <div class="result-data-weather-container">
+                            <img class="result-data-weather-img" src="./assets/temperature.png" alt="temperature image" />
+                            <h1 id="result-temp" class="result-data-weather-text">40</h1>
+                        </div>
+                        <h1 id="result-weather" class="result-data-weather-title">Snowy</h1>
+                    </div>
+                    <div class="result-data-rest-container">
+                        <div class="result-data-rest-content">
+                            <img src="./assets/windspeed.png" alt="" class="result-img-icon">
+                            <div class="result-rest-value">
+                                <h2 class="description-text-rest">Windspeed</h2>
+                                <p id="result-wind" class="description-result-value">40</p>
+                            </div>
+                        </div>
+                        <div class="result-data-rest-content">
+                            <img src="./assets/cloud.png" alt="" class="result-img-icon">
+                            <div class="result-rest-value">
+                                <h2 class="description-text-rest">Clouds</h2>
+                                <p id="result-clouds" class="description-result-value">20</p>
+                            </div>
+                        </div>
+                        <div class="result-data-rest-content">
+                            <img src="./assets/snow.png" alt="" class="result-img-icon">
+                            <div class="result-rest-value">
+                                <h2 class="description-text-rest">Snow</h2>
+                                <p id="result-snow" class="description-result-value">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="result-action" class="result-action">Save trip</button>
+                </div>
+                <img id="loading" src="./assets/loading.gif" alt="loading" class="loading" />
+            </div>
+        </div>
+        <div class="wrapper__message">
+            <div class="message-content">
+                <h1>¡Enjoy your life!</h1>
+                <p>Look up for the best places to spend time alone or with your parents, check out the carrousel bellow to see the most beatifull places to visit</p>
+            </div>
+            <img class="message-img" src="./assets/traveling.jpeg" alt="traveling image">
+        </div>
+        <div class="wrapper__footer">
+            <p>© Roldan Barreto - Almunz Tech</p>
+        </wrapper>
+    </div>
+    <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Type your name to keep track of your searchs</h1>
+      <form action="">
+        <input type="text" id="modal-input" class="modal-input" placeholder="Write your name" required>
+        <button id="modal-button" class="button-modal" type="submit" > sign in </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
