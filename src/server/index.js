@@ -26,16 +26,16 @@ app.get('/', (req, res) => {
 
 app.post('/search-country', async (req, res) => {
     const {countryValue, dateValue} = req.body;
-    const geonameURL = `${GEONAME_BASE_URL}?name_equals=${countryValue}&name=${countryValue}&username=${process.env.GEONAME_NAME_KEY}`;    
+    const geonameURL = `${GEONAME_BASE_URL}?name_equals=${countryValue}&name=${countryValue}&username=${'roldan'}`;  // Username will be replace for the env variable after the last review.   
 
     const geoNames = await executeGET(geonameURL);
     const { lat: latitude, lng: longitude} = geoNames && geoNames.geonames[0];
 
-    const weatherbitURL = `${WEATTHER_BIT_BASE_URL}?lat=${latitude}&lon=${longitude}&key=${process.env.WEATHER_API_KEY}`;
+    const weatherbitURL = `${WEATTHER_BIT_BASE_URL}?lat=${latitude}&lon=${longitude}&key=${'829a45b17a5c4accabf1406e4c369433'}`; // Key will be replace for the env variable after the last review.
     const weatherResult = await executeGET(weatherbitURL);
     const weatherData = weatherResult.data[0];
 
-    const pixabayURL = `${PIXABAY_BASE_URL}?key=${process.env.PIXABAY_API_KEY}&q=${countryValue}&image_type=photo`;
+    const pixabayURL = `${PIXABAY_BASE_URL}?key=${'23671774-7eba73f4691822ab682b00c5d'}&q=${countryValue}&image_type=photo`; // Key will be replace for the env variable after the last review.
     const pixabayResult = await executeGET(pixabayURL);
     const pixabayImage = pixabayResult.hits[0].webformatURL;
 
