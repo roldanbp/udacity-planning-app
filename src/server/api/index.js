@@ -1,5 +1,10 @@
 const { baseFetch } = require('../../util')
 
+
+/**
+ * It retrieve data using GET method from the URL assigned.
+ * @param {string} url
+ */
 const executeGET = async (url) => {
     
     try {

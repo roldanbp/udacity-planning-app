@@ -20,10 +20,17 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('dist'));
 
+/**
+ * It render the first html element.
+ */
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "../../dist/view", "index.html"));
 })
 
+/**
+ * It retrieves data from different APIs using the data provided 
+ * by the user and return a object as a result mixing all of API results.
+ */
 app.post('/search-country', async (req, res) => {
     const {countryValue, dateValue} = req.body;
     const geonameURL = `${GEONAME_BASE_URL}?name_equals=${countryValue}&name=${countryValue}&username=${'roldan'}`;  // Username will be replace for the env variable after the last review.   
@@ -56,12 +63,18 @@ app.post('/search-country', async (req, res) => {
     res.send({code: 200, search: dataStore.search, searchHistory: dataStore.searchHistory});
 })
 
+/**
+ * It saves the trip in the dataStore savedSearches.
+ */
 app.post('/save-trip', (req, res) => {
     const search = req.body;
     dataStore.savedSearches.push(search);
     res.send({message: "Your trip was saved.", savedSearches: dataStore.savedSearches});
 })
 
+/**
+ * It returns saved searches stored in dataStore. 
+ */
 app.get('/searchs-information', (req,res) => {
     res.send({savedSearches: dataStore.savedSearches, searchHistory: dataStore.searchHistory})
 })

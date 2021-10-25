@@ -27,6 +27,10 @@ const SearchedTripsContainer = document.querySelector("#searched-trips");
 const savedTripsContainer = document.querySelector("#saved-trips");
 const savedTripsWrapper = document.querySelector("#save-trip-wrapper");
   
+
+/**
+ * It update the Result Container with the recived data 
+ */
 const updateResultUI = ({cityName, clouds, image, snow, temp, weather, windSpeed}) => {
     resultContainer.style.display = 'flex';
     resultImagePlace.src = image;
@@ -40,6 +44,9 @@ const updateResultUI = ({cityName, clouds, image, snow, temp, weather, windSpeed
     
 }
 
+/**
+ * It remove the previous data from the SwipperWrapper and then put new values.
+ */
 const updateHistoryUI = (data) => {
     while (SwipperWrapper.firstChild) {
         SwipperWrapper.removeChild(SwipperWrapper.lastChild);
@@ -64,6 +71,9 @@ const updateHistoryUI = (data) => {
     })
 }
 
+/**
+ * It remove the previous data from the savedTripsContainer and then put new values.
+ */
 const updateSavedUI = (data) => {
     while (savedTripsContainer.firstChild) {
         savedTripsContainer.removeChild(savedTripsContainer.lastChild);
@@ -111,6 +121,9 @@ const updateSavedUI = (data) => {
     })
 }
 
+/**
+ * Listener to execute the request to search the country info, sending the values assigned by the user.
+ */
 submitButton.addEventListener('click', async (event) => {
     if(event) { event.preventDefault()}
     
@@ -133,10 +146,16 @@ submitButton.addEventListener('click', async (event) => {
     
 })
 
+/**
+ * Listener to scroll the view to the Header.
+ */
 upArrow.addEventListener('click', event => {
     headerContainer.scrollIntoView({block:"start", behavior: "smooth"});
 })
 
+/**
+ * Listener to execute the request to save the trip.
+ */
 saveAction.addEventListener('click', async () => {
     
     try {
@@ -153,6 +172,9 @@ saveAction.addEventListener('click', async () => {
     }
 })
 
+/**
+ * Listener to know when the DOM is completely loaded.
+ */
 document.onreadystatechange = async () => {
     if (document.readyState === 'complete') {
         
@@ -167,8 +189,11 @@ document.onreadystatechange = async () => {
     }
 };
 
-Swiper.use([Navigation, Pagination])
+Swiper.use([Navigation, Pagination]);
 
+/**
+ * Library used to create a Slider.
+ */
 new Swiper('.swiper', {
     slidesPerView: 3,
     spaceBetween: 10,
